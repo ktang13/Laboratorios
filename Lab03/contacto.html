@@ -77,5 +77,30 @@
       </form>
     </section>
   </main>
+  <script>
+    const campos = document.querySelectorAll(
+      ".contacto-card input, .contacto-card textarea"
+    );
+
+    campos.forEach(function (campo) {
+      campo.addEventListener("invalid", function () {
+        campo.setCustomValidity("");
+
+        if (campo.validity.valueMissing) {
+          campo.setCustomValidity(
+            "Por favor, complete este campo."
+          );
+        } else if (campo.validity.typeMismatch) {
+          campo.setCustomValidity(
+            "Por favor, ingrese un correo válido, como ejemplo@correo.com."
+          );
+        }
+      });
+
+      campo.addEventListener("input", function () {
+        campo.setCustomValidity("");
+      });
+    });
+  </script>
 </body>
 </html>
