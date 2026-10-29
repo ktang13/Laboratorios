@@ -15,6 +15,44 @@ body {
   color: #0f172a;
 }
 
+body,html {
+  width: 100%;
+  height: 100%;
+}
+
+.caja{
+    padding: 10px;
+    background-color: hsla(161, 29%, 25%, 0.3);
+    margin: 70px auto;
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+    box-shadow:  10px -10px 10px 10px blue, 20px -20px 10px 10px red;
+}
+
+.texto-prueba{
+    color: black;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    padding-top: 120px;
+    text-shadow: 5px 5px 5px #ff0000, 10px 10px 10px #00ff00, 15px 15px 15px #0000ff;
+    
+}
+
+.cuadrado{
+    width: 100px;
+    height: 100px;
+    background-color: greenyellow;
+    transition-property: transform,;
+    transition-duration: 3s;
+    position: relative;
+    left: 0;
+}
+.cuadrado:hover{
+        left: 300px;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
