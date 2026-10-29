@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio | Gloss Boss Auto Detailing</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+  <!-- encabezado de la página -->
+  <header>
+    <a href="index.html"><img src="img/logo.png" alt="Gloss Boss Auto Detailing"></a>
+    <h1 id="main-title" class="title animate__animated animate__fadeInDown">Gloss Boss</h1>
+    <h2 class="title">Auto Detailing</h2>
+    <!-- menú: conecta todas las páginas -->
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li class="menu-item"><a href="index.html" class="activo">Inicio</a></li>
+        <li class="menu-item"><a href="servicios.html">Servicios</a></li>
+        <li class="menu-item"><a href="clientes.html">Clientes</a></li>
+        <li class="menu-item"><a href="registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- portada -->
+    <section class="portada">
+      <div class="col-lg-7">
+        <p class="rojo fw-bold mb-2">TU CARRO. TU DETALLE. TU ELECCIÓN.</p>
+        <h2 class="display-5 fw-bold text-uppercase">Que tu carro luzca como el <span class="rojo">primer día</span></h2>
+        <p class="lead my-3">Lavado premium, pulido y tratamiento de pintura.</p>
+        <a href="servicios.html" class="btn btn-gb btn-lg me-2">Ver servicios</a>
+        <a href="registro.html" class="btn btn-claro btn-lg">Registrarme</a>
+      </div>
+    </section>
+
+    <!-- columnas (grid) -->
+    <section>
+      <h2 class="titulo-seccion mb-4">Así detallamos tu carro</h2>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="img/mazda-1.jpg" class="card-img-top" alt="Mazda detallada">
+            <div class="card-body"><h5 class="card-title">Lavado y brillo</h5>
+              <p class="card-text text-secondary">Lavado a mano con productos que cuidan la pintura.</p></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="img/nissan-1.jpg" class="card-img-top" alt="Nissan detallada">
+            <div class="card-body"><h5 class="card-title">Pulido</h5>
+              <p class="card-text text-secondary">Eliminamos marcas y devolvemos el acabado original.</p></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="img/toyota-despues.jpg" class="card-img-top" alt="Toyota después del detallado">
+            <div class="card-body"><h5 class="card-title">Protección</h5>
+              <p class="card-text text-secondary">Tratamientos para que el brillo dure mucho más.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- bloque de video -->
+    <section id="video-section" class="my-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h2 class="titulo-seccion">Mirá cómo trabajamos</h2>
+          <p class="text-secondary mt-3">Cada servicio se hace paso a paso para lograr un acabado sin imperfecciones.</p>
+          <a href="registro.html" class="btn btn-gb">Quiero mi detallado</a>
+        </div>
+        <div class="col-lg-6 text-center">
+          <video controls poster="img/poster.jpg">
+            <source src="video/gloss-boss.mp4" type="video/mp4">
+          </video>
+          <!-- Si lo suben a YouTube, se usa como en el ejemplo del profe:
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ID_DEL_VIDEO" title="Video" allowfullscreen></iframe> -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Gloss Boss Auto Detailing · Proyecto de Programación en Internet</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

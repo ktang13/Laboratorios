@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
+!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab05</title>
-  <link rel="stylesheet" href="estilos.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>Registro | Gloss Boss Auto Detailing</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <!-- encabezado de cuerpo de la pagina-->
+  <!-- encabezado de la página -->
   <header>
-    <h1 id="main-title" class="title">Gloss Bloss
-    <h2 class="title">AUTO DEATAILING
-    <!-- menu -->
+    <a href="index.html"><img src="img/logo.png" alt="Gloss Boss Auto Detailing"></a>
+    <h1 id="main-title" class="title animate__animated animate__fadeInDown">Gloss Boss</h1>
+    <h2 class="title">Auto Detailing</h2>
+    <!-- menú: conecta todas las páginas -->
     <nav class="nav-menu">
       <ul class="nav-list">
         <li class="menu-item"><a href="index.html">Inicio</a></li>
-        <li class="menu-item"><a href="cursos.html">Cursos</a></li>
-        <li class="menu-item"><a href="contacto.html">Contacto</a></li>
-        <li class="menu-item"><a href="ayuda.html">Ayuda</a></li>
+        <li class="menu-item"><a href="servicios.html">Servicios</a></li>
+        <li class="menu-item"><a href="clientes.html">Clientes</a></li>
+        <li class="menu-item"><a href="registro.html" class="activo">Registro</a></li>
       </ul>
     </nav>
   </header>
@@ -28,81 +30,87 @@
   <main class="container">
 
     <!-- bloque de formulario de registro -->
-    <section class="card p-4 mx-auto my-4" >
-      <form action="#" method="post">
+    <section class="card p-4 mx-auto my-4" style="max-width:760px;">
+      <form id="formRegistro" action="#" method="post">
         <fieldset>
-          <legend>Registro de Usuario</legend>
+          <legend>Registro de Cliente</legend>
 
-          <div class="form-group">
-            <label class="form-label" for="username">Nombre de Usuario:</label>
-            <input class="form-control" type="text" id="username" name="username" required>
+          <div class="form-group mb-3">
+            <label class="form-label" for="username">Nombre completo:</label>
+            <input class="form-control" type="text" id="username" name="username" required minlength="3">
 
-            <label class="form-label" for="email">Correo Electrónico:</label>
+            <label class="form-label mt-2" for="email">Correo electrónico:</label>
             <input class="form-control" type="email" id="email" name="email" required>
 
-            <label class="form-label" for="password">Contraseña:</label>
-            <input class="form-control" type="password" id="password" name="password" required>
+            <label class="form-label mt-2" for="password">Contraseña:</label>
+            <input class="form-control" type="password" id="password" name="password" required minlength="6">
+            <small class="form-text">Mínimo 6 caracteres.</small>
           </div>
 
-          <fieldset>
-            <legend>Genero</legend>
-            <div>
-              <div>
-                <input type="radio" value="m" name="genero" id="g-m">
-                <label for="g-m">Masculino</label>
+          <!-- datos del vehículo en 3 columnas (grid) -->
+          <fieldset class="mb-3">
+            <legend>Tu vehículo</legend>
+            <div class="row">
+              <div class="col-sm-4 mb-3">
+                <label class="form-label" for="placa">Placa</label>
+                <input class="form-control" type="text" id="placa" name="placa" required>
               </div>
-              <div>
-                <input type="radio" value="f" name="genero" id="g-f">
-                <label for="g-f">Femenino</label>
+              <div class="col-sm-4 mb-3">
+                <label class="form-label" for="marca">Marca</label>
+                <input class="form-control" type="text" id="marca" name="marca" required>
               </div>
-              <div>
-                <input type="radio" value="o" name="genero" id="g-o">
-                <label for="g-o">Otro</label>
-              </div>
-              <div>
-                <input type="radio" value="n" name="genero" id="g-n">
-                <label for="g-n">Prefiero no decirlo</label>
+              <div class="col-sm-4 mb-3">
+                <label class="form-label" for="modelo">Modelo</label>
+                <input class="form-control" type="text" id="modelo" name="modelo" required>
               </div>
             </div>
           </fieldset>
 
-          <fieldset>
-            <legend>Seleccione sus intereses:</legend>
-            <div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes1" value="programacion">
-                <label for="interes1">Programación</label>
-              </div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes2" value="diseño">
-                <label for="interes2">Diseño Gráfico</label>
-              </div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes3" value="marketing">
-                <label for="interes3">Marketing Digital</label>
-              </div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes4" value="ciencia">
-                <label for="interes4">Ciencia de Datos</label>
-              </div>
+          <fieldset class="mb-3">
+            <legend>Tipo de vehículo</legend>
+            <div class="form-check"><input class="form-check-input" type="radio" name="tipo" id="t-s" value="sedan" required><label class="form-check-label" for="t-s">Sedán</label></div>
+            <div class="form-check"><input class="form-check-input" type="radio" name="tipo" id="t-u" value="suv"><label class="form-check-label" for="t-u">SUV</label></div>
+            <div class="form-check"><input class="form-check-input" type="radio" name="tipo" id="t-p" value="pickup"><label class="form-check-label" for="t-p">Pick-up</label></div>
+            <div class="form-check"><input class="form-check-input" type="radio" name="tipo" id="t-d" value="deportivo"><label class="form-check-label" for="t-d">Deportivo</label></div>
           </fieldset>
 
-          <button class="btn btn-primary w-100 my-2" type="submit">Registrar</button>
+          <fieldset class="mb-3">
+            <legend>Seleccione los servicios que le interesan:</legend>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="servicios" id="s1" value="lavado"><label class="form-check-label" for="s1">Lavado premium</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="servicios" id="s2" value="interior"><label class="form-check-label" for="s2">Detallado interior</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="servicios" id="s3" value="exterior"><label class="form-check-label" for="s3">Detallado exterior</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="servicios" id="s4" value="pulido"><label class="form-check-label" for="s4">Pulido</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="servicios" id="s5" value="pintura"><label class="form-check-label" for="s5">Tratamiento de pintura</label></div>
+          </fieldset>
+
+          <button class="btn btn-gb w-100 my-2" type="submit">Registrar</button>
         </fieldset>
       </form>
+
+      <!-- mensaje de éxito con botones hacia las otras páginas -->
+      <div id="exito" class="alert alert-success mt-3 d-none">
+        <h5 class="alert-heading">¡Registro exitoso!</h5>
+        <p class="mb-2">Ya puedes elegir tus servicios.</p>
+        <a href="servicios.html" class="btn btn-gb btn-sm">Ver servicios</a>
+        <a href="clientes.html" class="btn btn-claro btn-sm">Ver clientes</a>
+      </div>
     </section>
 
-    <!-- bloque de video incrustado -->
-    <section id="video-section">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/te1p2-hfwxo?si=F25S6KMyMdq1QGWC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
-    </main>
+  </main>
 
-
+  <script>
+    // Si el formulario es válido (HTML5), muestra el mensaje de éxito
+    document.getElementById('formRegistro').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('exito').classList.remove('d-none');
+      this.reset();
+    });
+  </script>
 
   <footer>
-    <p>&copy; 2023 Plataforma Educativa Universidad Central</p>
-    <p>Contacto: <a href="mailto:kimatango@edu.uc.ac.cr">Kimberly</a></p>
+    <p>&copy; 2026 Gloss Boss Auto Detailing · Proyecto de Programación en Internet</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

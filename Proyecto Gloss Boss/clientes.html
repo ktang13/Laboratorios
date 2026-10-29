@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes | Gloss Boss Auto Detailing</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+  <!-- encabezado de la página -->
+  <header>
+    <a href="index.html"><img src="img/logo.png" alt="Gloss Boss Auto Detailing"></a>
+    <h1 id="main-title" class="title animate__animated animate__fadeInDown">Gloss Boss</h1>
+    <h2 class="title">Auto Detailing</h2>
+    <!-- menú-->
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li class="menu-item"><a href="index.html">Inicio</a></li>
+        <li class="menu-item"><a href="servicios.html">Servicios</a></li>
+        <li class="menu-item"><a href="clientes.html" class="activo">Clientes</a></li>
+        <li class="menu-item"><a href="registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Agregar cliente -->
+    <section class="card p-4 my-4">
+      <h2 class="titulo-seccion mb-3">Agregar Clientes</h2>
+      <form id="formCliente" action="#" method="post">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label" for="nombre">Nombre:</label>
+            <input class="form-control" type="text" id="nombre" placeholder="Ingrese el nombre del cliente" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="apellido">Apellido:</label>
+            <input class="form-control" type="text" id="apellido" placeholder="Ingrese el apellido del cliente" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="correo">Correo:</label>
+            <input class="form-control" type="email" id="correo" placeholder="Ingrese el correo del cliente" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="vehiculo">Vehículo:</label>
+            <input class="form-control" type="text" id="vehiculo" placeholder="Marca y modelo del vehículo" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="servicio">Servicio:</label>
+            <select class="form-select" id="servicio" required>
+              <option value="" selected disabled>Seleccione un servicio</option>
+              <option>Lavado premium</option><option>Detallado interior</option><option>Detallado exterior</option>
+              <option>Pulido</option><option>Tratamiento de pintura</option><option>Paquete completo</option>
+            </select>
+          </div>
+          <div class="col-md-6 d-flex align-items-end justify-content-end gap-2">
+            <button class="btn btn-gb" type="submit">Agregar</button>
+            <button class="btn btn-claro" type="reset">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Buscar cliente -->
+    <section class="card p-4 mb-4">
+      <div class="input-group mb-2">
+        <input class="form-control" type="text" id="buscar" placeholder="Buscar cliente por nombre">
+        <button class="btn btn-claro" type="button" id="limpiar" aria-label="Limpiar búsqueda">✖</button>
+      </div>
+      <button class="btn btn-gb w-100" type="button" id="consultar">Consultar</button>
+    </section>
+
+    <!-- Tabla de clientes (datos de ejemplo) -->
+    <section class="card p-4 mb-4">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-gb mb-0">
+          <thead>
+            <tr><th>Nombre</th><th>Apellido</th><th>Correo</th><th>Vehículo</th><th>Servicio</th><th>Estado</th></tr>
+          </thead>
+          <tbody id="tablaClientes">
+            <tr><td>MARÍA</td><td>RODRÍGUEZ</td><td>maria.rodriguez@correo.com</td><td>Toyota Yaris</td><td>Lavado premium</td><td>Finalizado</td></tr>
+            <tr><td>CARLOS</td><td>JIMÉNEZ</td><td>carlos.jimenez@correo.com</td><td>Mazda CX-5</td><td>Pulido</td><td>En proceso</td></tr>
+            <tr><td>ANA</td><td>SOLANO</td><td>ana.solano@correo.com</td><td>Nissan X-Trail</td><td>Paquete completo</td><td>Confirmado</td></tr>
+            <tr><td>LUIS</td><td>MORA</td><td>luis.mora@correo.com</td><td>Toyota Hilux</td><td>Detallado interior</td><td>Pendiente</td></tr>
+            <tr><td>DANIELA</td><td>VARGAS</td><td>daniela.vargas@correo.com</td><td>Honda Civic</td><td>Detallado exterior</td><td>Pendiente</td></tr>
+            <tr><td>JORGE</td><td>CASTRO</td><td>jorge.castro@correo.com</td><td>Hyundai Tucson</td><td>Tratamiento de pintura</td><td>Pendiente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="text-center">
+      <a href="servicios.html" class="btn btn-claro me-2">Ver servicios</a>
+      <a href="registro.html" class="btn btn-gb">Ir al registro</a>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('formCliente');
+    const tabla = document.getElementById('tablaClientes');
+    const buscar = document.getElementById('buscar');
+
+    // Agregar: crea una fila nueva al final de la tabla
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const fila = document.createElement('tr');
+      fila.innerHTML = '<td>' + nombre.value.toUpperCase() + '</td>' +
+                       '<td>' + apellido.value.toUpperCase() + '</td>' +
+                       '<td>' + correo.value + '</td>' +
+                       '<td>' + vehiculo.value + '</td>' +
+                       '<td>' + servicio.value + '</td>' +
+                       '<td>Pendiente</td>';
+      tabla.appendChild(fila);
+      form.reset();
+    });
+
+    // Consultar: muestra solo las filas cuyo nombre coincide
+    document.getElementById('consultar').addEventListener('click', function () {
+      const texto = buscar.value.toLowerCase();
+      for (const fila of tabla.rows) {
+        const nom = fila.cells[0].textContent.toLowerCase();
+        fila.hidden = !nom.includes(texto);
+      }
+    });
+
+    // X: limpia la búsqueda y muestra todas las filas
+    document.getElementById('limpiar').addEventListener('click', function () {
+      buscar.value = '';
+      for (const fila of tabla.rows) fila.hidden = false;
+    });
+  </script>
+
+  <footer>
+    <p>&copy; 2026 Gloss Boss Auto Detailing · Proyecto de Programación en Internet</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

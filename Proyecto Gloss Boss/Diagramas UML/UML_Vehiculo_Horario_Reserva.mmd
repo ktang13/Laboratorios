@@ -1,0 +1,41 @@
+classDiagram
+direction LR
+
+class Usuario {
+  +int IdUsuario
+  +string Nombre
+  +string Correo
+  +string Rol
+  +bool Activo
+}
+
+class Vehiculo {
+  +int IdVehiculo
+  +int IdUsuario_FK
+  +string Placa
+  +string Marca
+  +string Modelo
+  +string TipoVehiculo
+}
+
+class Horario {
+  +int IdHorario
+  +date Fecha
+  +time Hora
+  +bool Disponible
+}
+
+class Reserva {
+  +int IdReserva
+  +int IdUsuario_FK
+  +int IdVehiculo_FK
+  +int IdHorario_FK
+  +float Total
+  +string Estado
+  +int Calificacion
+}
+
+Usuario "1" --> "0..*" Vehiculo : registra
+Usuario "1" --> "0..*" Reserva : realiza
+Vehiculo "1" --> "0..*" Reserva : se_atiende_en
+Horario "1" --> "0..1" Reserva : se_asigna_a

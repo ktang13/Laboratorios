@@ -1,0 +1,88 @@
+classDiagram
+direction TB
+
+class Usuario {
+  +int IdUsuario
+  +string Nombre
+  +string Correo
+  +string Contrasena
+  +string Rol
+  +bool Activo
+}
+class Vehiculo {
+  +int IdVehiculo
+  +int IdUsuario_FK
+  +string Placa
+  +string Marca
+  +string Modelo
+  +string TipoVehiculo
+}
+class Categoria {
+  +int IdCategoria
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+class Servicio {
+  +int IdServicio
+  +int IdCategoria_FK
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+class PrecioServicio {
+  +int IdPrecio
+  +int IdServicio_FK
+  +string TipoVehiculo
+  +float Precio
+}
+class Carrito {
+  +int IdCarrito
+  +int IdUsuario_FK
+}
+class ItemCarrito {
+  +int IdItemCarrito
+  +int IdCarrito_FK
+  +int IdServicio_FK
+}
+class Horario {
+  +int IdHorario
+  +date Fecha
+  +time Hora
+  +bool Disponible
+}
+class Reserva {
+  +int IdReserva
+  +int IdUsuario_FK
+  +int IdVehiculo_FK
+  +int IdHorario_FK
+  +float Total
+  +string Estado
+  +int Calificacion
+}
+class DetalleReserva {
+  +int IdDetalleReserva
+  +int IdReserva_FK
+  +int IdServicio_FK
+  +float PrecioUnitario
+}
+class Pago {
+  +int IdPago
+  +int IdReserva_FK
+  +string Metodo
+  +float Monto
+  +string Estado
+}
+
+Usuario "1" --> "0..*" Vehiculo : registra
+Usuario "1" --> "0..*" Reserva : realiza
+Usuario "1" --> "0..1" Carrito : posee
+Carrito "1" --> "0..*" ItemCarrito : contiene
+Servicio "1" --> "0..*" ItemCarrito : agregado_a
+Categoria "1" --> "0..*" Servicio : agrupa
+Servicio "1" --> "1..*" PrecioServicio : tiene
+Vehiculo "1" --> "0..*" Reserva : se_atiende_en
+Horario "1" --> "0..1" Reserva : se_asigna_a
+Reserva "1" --> "1..*" DetalleReserva : contiene
+Servicio "1" --> "0..*" DetalleReserva : incluido_en
+Reserva "1" --> "0..1" Pago : se_paga_con

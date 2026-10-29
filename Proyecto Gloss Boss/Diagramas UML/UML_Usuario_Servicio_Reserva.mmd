@@ -1,0 +1,39 @@
+classDiagram
+direction LR
+
+class Usuario {
+  +int IdUsuario
+  +string Nombre
+  +string Correo
+  +string Rol
+  +bool Activo
+}
+
+class Servicio {
+  +int IdServicio
+  +int IdCategoria_FK
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+
+class Reserva {
+  +int IdReserva
+  +int IdUsuario_FK
+  +int IdServicio_FK
+  +date Fecha
+  +float Total
+  +string Estado
+  +int Calificacion
+}
+
+class Categoria {
+  +int IdCategoria
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+
+Usuario "1" --> "0..*" Reserva : realiza
+Servicio "1" --> "0..*" Reserva : recibe
+Categoria "1" --> "0..*" Servicio : agrupa

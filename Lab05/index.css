@@ -1,78 +1,45 @@
-#ctn-1 {
-  background-color: #f8f9fa;
-}
+/* Estilos */
+:root { --rojo:#d10f1a; --rojo-hover:#f01723; --negro:#0b0b0c; --gris:#1a1a1c; --borde:#2e2e32; }
 
-#ctn-2 {
-  background-color: #a5a5a5;
-}
+body { background:var(--negro); color:#f2f2f2; }
 
-.pintar>.row>div {
-  background-color: #98cbff;
-  border: 1px solid #000;
-  padding: 10px;
-}
+/* Encabezado y menú */
+header { background:#000; border-bottom:3px solid var(--rojo); text-align:center; padding:1rem 1rem 1.2rem; }
+header img { height:70px; }
+.title { margin:.3rem 0; }
+h1.title { font-weight:700; text-transform:uppercase; }
+h2.title { font-size:1.2rem; color:#a9acb2; }
+.nav-list { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin:1rem 0 0; padding:0; }
+.menu-item a { display:block; padding:.6rem 1.3rem; background:var(--rojo); color:#fff; border-radius:8px; text-decoration:none; font-weight:600; }
+.menu-item a:hover { background:var(--rojo-hover); }
+.menu-item a.activo { outline:2px solid #fff; }
 
-/* Extra small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
+/* Portada */
+.portada { min-height:55vh; display:flex; align-items:center; border-radius:16px; margin:1.5rem 0; padding:2rem;
+  background:linear-gradient(90deg, rgba(0,0,0,.9) 30%, rgba(0,0,0,.35)), url('../img/mazda-1.jpg') center 35%/cover; }
+.rojo { color:var(--rojo); }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  p {
-    color: red !important;
-  }
-}
+/* Tarjetas y secciones */
+.card { background:var(--gris); border:1px solid var(--borde); border-radius:16px; }
+.card-img-top { height:210px; object-fit:cover; border-radius:16px 16px 0 0; }
+.titulo-seccion { border-left:4px solid var(--rojo); padding-left:.7rem; text-transform:uppercase; }
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  p {
-    color: blue !important;
-  }
-}
+/* Botones */
+.btn-gb { background:var(--rojo); color:#fff; border:0; font-weight:600; }
+.btn-gb:hover { background:var(--rojo-hover); color:#fff; }
+.btn-claro { background:#e9e9ec; color:#111; border:0; font-weight:700; }
+.btn-claro:hover { background:#fff; color:#000; }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  p {
-    color: green !important;
-  }
-}
+/* Formularios */
+legend { font-size:1.2rem; }
+.form-text { color:#a9acb2; }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  p {
-    color: purple !important;
-  }
-}
+/* Tabla del módulo de clientes */
+.table-gb thead th { background:#0a2f3a; color:#fff; padding:.8rem; }
+.table-gb td { padding:.8rem; vertical-align:middle; }
+.table-responsive { border-radius:12px; overflow:hidden; }
 
-#title:hover {
-  color: orange;
-  animation: bounce 2s infinite;
-}
+/* Video, object-fit: contain*/ 
+#video-section video { max-width:320px; width:100%;  aspect-ratio: 1 / 1; object-fit: cover; border-radius:12px; border:3px solid var(--rojo); }
 
-:root {
-  --animate-duration: 800ms;
-  --animate-delay: 0.9s;
-}
-
-/* Color del título al pasar el mouse */
-#title:hover {
-  color: orange;
-}
-
-/* Primer cuadro Lab05 */
-.cuadro-claro {
-  background-color: #f8f9f9;
-  padding: 12px;
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-/* Segundo cuadro Lab05 */
-.cuadro-gris {
-  background-color: #a6a6a6;
-  padding: 12px;
-  margin-bottom: 15px;
-}
-
-.texto-rojo {
-  color: #ff6363;
-}
+footer { border-top:1px solid var(--borde); text-align:center; padding:1.2rem; color:#a9acb2; margin-top:2rem; }

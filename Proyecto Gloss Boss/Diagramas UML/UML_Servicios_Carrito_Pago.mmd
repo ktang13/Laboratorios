@@ -1,0 +1,80 @@
+classDiagram
+direction LR
+
+%% Servicios
+class Servicio {
+  +int IdServicio
+  +int IdCategoria_FK
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+%% Categorias
+class Categoria {
+  +int IdCategoria
+  +string Nombre
+  +string Descripcion
+  +bool Activo
+}
+%% Precio segun tipo de vehiculo
+class PrecioServicio {
+  +int IdPrecio
+  +int IdServicio_FK
+  +string TipoVehiculo
+  +float Precio
+}
+%% Usuarios
+class Usuario {
+  +int IdUsuario
+  +string Nombre
+  +string Correo
+  +string Contrasena
+  +string Rol
+  +bool Activo
+}
+%% Reservas
+class Reserva {
+  +int IdReserva
+  +int IdUsuario_FK
+  +float Total
+  +string Estado
+  +int Calificacion
+}
+%% DetalleReserva
+class DetalleReserva {
+  +int IdDetalleReserva
+  +int IdReserva_FK
+  +int IdServicio_FK
+  +float PrecioUnitario
+}
+%% Pago
+class Pago {
+  +int IdPago
+  +int IdReserva_FK
+  +string Metodo
+  +float Monto
+  +string Estado
+}
+%% Relaciones
+Categoria "1" --> "0..*" Servicio : agrupa
+Servicio "1" --> "1..*" PrecioServicio : tiene
+Reserva "1" --> "1..*" DetalleReserva : contiene
+Servicio "1" --> "0..*" DetalleReserva : incluido_en
+Usuario "1" --> "0..*" Reserva : realiza
+Reserva "1" --> "0..1" Pago : se_paga_con
+
+%% Carrito de Compras
+class Carrito {
+  +int IdCarrito
+  +int IdUsuario_FK
+}
+%% ItemCarrito
+class ItemCarrito {
+  +int IdItemCarrito
+  +int IdCarrito_FK
+  +int IdServicio_FK
+}
+%% Relacion Usuario-Carrito
+Usuario "1" --> "0..1" Carrito : posee
+Carrito "1" --> "0..*" ItemCarrito : contiene
+Servicio "1" --> "0..*" ItemCarrito : agregado_a
