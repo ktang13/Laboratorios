@@ -160,7 +160,7 @@ const guardarEstudiante = async () => {
 
   if (txtId.value) {
     // Actualizar estudiante existente
-    const { error } = await supabase.from("estudiantes").update([estudiante]).eq("id", txtId.value);
+    const { error } = await supabase.from("estudiantes").update(estudiante).eq("id", txtId.value);
 
     if (error) {
       console.error(error);
